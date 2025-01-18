@@ -2,7 +2,8 @@
 
 namespace App\Livewire;
 
-use App\Events\EmojiClicked;
+// use App\Events\EmojiClicked;
+use App\Events\ClickEvent;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -18,6 +19,6 @@ class HomePage extends Component
      */
     public function broadcast(string $emoji): void
     {
-        event(new EmojiClicked($emoji));
+        event(new ClickEvent($emoji));
     }
 }
