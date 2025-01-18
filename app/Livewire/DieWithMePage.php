@@ -22,24 +22,22 @@ class DieWithMePage extends Component
 
     public function mount()
     {
-        $this->unique_identifier = v6();
+
     }
 
     public function send(string $message)
     {
-        broadcast(new MessageSent($this->unique_identifier, $this->display_name, $message))->toOthers();
+
     }
 
     public function typing()
     {
-        $this->isTyping = true;
-        broadcast(new IsTyping($this->unique_identifier, $this->display_name))->toOthers();
+
     }
 
     public function idle()
     {
-        $this->isTyping = false;
-        broadcast(new TypingStopped($this->unique_identifier, $this->display_name))->toOthers();
+
     }
 
     public function render()
