@@ -9,6 +9,7 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class ClickEvent implements ShouldBroadcast
 {
@@ -22,6 +23,7 @@ class ClickEvent implements ShouldBroadcast
     {
         //
        $this->text = $text;
+       // Log::debug('Icon clicked');
     }
 
     /**
@@ -30,7 +32,7 @@ class ClickEvent implements ShouldBroadcast
      * private channel / public channel
      * PrivateChannel('channel-name') private
      * Channel('channel-name') public
-     * @return array<int, \Illuminate\Broadcasting\Channel>
+     * @return array<int, Channel>
      */
     public function broadcastOn(): array
     {
