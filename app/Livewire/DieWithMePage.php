@@ -9,7 +9,6 @@ use App\Models\User;
 use Livewire\Attributes\Locked;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
-use function Ramsey\Uuid\v6;
 
 class DieWithMePage extends Component
 {

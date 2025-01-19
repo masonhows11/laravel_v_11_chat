@@ -7,18 +7,21 @@ use App\Events\ClickEvent;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('Live Social Mood')]
+#[Title('Test Websocket')]
 class HomePage extends Component
 {
     /**
      * Receive user's selected emoji to broadcast
      *
-     * @param string $emoji
+     * @param string $text
      *
      * @return void
      */
-    public function broadcast(string $emoji): void
+    public function broadcast(string $text): void
     {
-        event(new ClickEvent($emoji));
+        // dd($emoji);
+
+        // call ClickEvent() event with argument
+        event(new ClickEvent($text));
     }
 }

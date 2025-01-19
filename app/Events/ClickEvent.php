@@ -10,27 +10,32 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class ClickEvent
+class ClickEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public string $text;
     /**
      * Create a new event instance.
      */
-    public function __construct()
+    public function __construct(string $text)
     {
         //
+       $this->text = $text;
     }
 
     /**
      * Get the channels the event should broadcast on.
-     *
+     * We can define two type channel
+     * private channel / public channel
+     * PrivateChannel('channel-name') private
+     * Channel('channel-name') public
      * @return array<int, \Illuminate\Broadcasting\Channel>
      */
     public function broadcastOn(): array
     {
         return [
-            new PrivateChannel('channel-name'),
+            new Channel('test-channel'),
         ];
     }
 }
